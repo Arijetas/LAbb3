@@ -1,9 +1,14 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
 
 namespace LAbb3
 {
@@ -17,11 +22,10 @@ namespace LAbb3
                 return Lista;
             }
         }
-        
-        
+
         public string Title { get; }
 
-        /* public Question GetRandomQuestion()
+        /*public Question GetRandomQuestion()
         {
 
         }
@@ -29,7 +33,9 @@ namespace LAbb3
 
         public void AddQuestion(string statement, int correctAnswer, params string[] answers)
         {
-            List<Question>.Add(new Question(statement, correctAnswer, answers));
+            List<Question> Lista = new List<Question>();
+
+          Lista.Add(new Question(statement,correctAnswer,answers));
 
         }
 

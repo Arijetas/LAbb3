@@ -24,6 +24,7 @@ namespace LAbb3.Views
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void EditView_Click(object sender, RoutedEventArgs e)

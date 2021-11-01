@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,18 @@ namespace LAbb3.Views
             Visibility = Visibility.Collapsed;
         }
 
-    
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (TitleTextBox.Text is null or "")
+            {
+                return;
+            }
+
+           // string path @"C:\LAbb3\Text.txt";
+           // using (var writer = new StreamWriter(path))
+            {
+                
+            }
+        }
     }
 }

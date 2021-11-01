@@ -12,14 +12,14 @@ namespace LAbb3
         public string Statement { get; set; }
         public string[] Answers { get; set; }
 
-        private readonly int correctAnswer;
+        private readonly int CorrectAnswer;
 
 
         public Question(string statement, int correctAnswer, params string[] answers)
         {
             Statement = statement;
             Answers = answers;
-
+            CorrectAnswer = correctAnswer;
 
         }
 

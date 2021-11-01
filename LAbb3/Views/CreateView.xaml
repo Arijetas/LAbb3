@@ -14,45 +14,51 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock
-            Grid.Row="0"
-            Grid.Column="1"
+            Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
-            VerticalAlignment="Top"
+            VerticalAlignment="Center"
             FontSize="20"
-            Text="CREATE QUIZ" Foreground="White" />
+            Foreground="White"
+            Text="CREATE QUIZ" />
+
 
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="20"
-                Text="Tittle" Foreground="White"/>
-            <TextBox FontSize="20" />
-            <Button Content="Add Title"/>
+                Foreground="White"
+                Text="Tittle" />
+            <TextBox Name="TitleTextBox" FontSize="20" />
         </StackPanel>
+
 
         <StackPanel Grid.Row="2" Grid.Column="0">
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="20"
-                Text="Statement" Foreground="White"/>
-            <TextBox FontSize="20" />
-            <Button Content="Add Statement" />
+                Foreground="White"
+                Text="Statement" />
+            <TextBox Name="StatementTextBox" FontSize="20" TextWrapping="Wrap" />
         </StackPanel>
+
+
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="20"
-                Text="Answer 1" Foreground="White" />
-            <TextBox FontSize="20" />
+                Foreground="White"
+                Text="Answer 1" />
+            <TextBox Name="Answer1TextBox" FontSize="20" />
+            <TextBlock Foreground="White" Text="Mark the correct answer" />
+            <CheckBox Name="CheckBox1" />
         </StackPanel>
 
 
@@ -60,16 +66,23 @@
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="20"
-                Text="Answer 2" Foreground="White"/>
-            <TextBox FontSize="20" />
+                Foreground="White"
+                Text="Answer 2" />
+            <TextBox Name="Answer2TextBox" FontSize="20" />
+            <TextBlock Foreground="White" Text="Mark the correct answer" />
+            <CheckBox Name="CheckBox2" />
         </StackPanel>
+
 
         <StackPanel Grid.Row="3" Grid.Column="1">
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="20"
-                Text="Answer 2" Foreground="White"/>
-            <TextBox FontSize="20" />
+                Foreground="White"
+                Text="Answer 3" />
+            <TextBox Name="Answer3TextBox" FontSize="20" />
+            <TextBlock Foreground="White" Text="Mark the right answer" />
+            <CheckBox Name="CheckBox3" />
         </StackPanel>
 
         <Button
@@ -79,12 +92,16 @@
             Height="50"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            Content="Back" Click="Back_Click" />
+            Click="Back_Click"
+            Content="Back" />
         <Button
             Grid.Row="4"
-            Grid.Column="2"
+            Grid.Column="1"
             Width="100"
             Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Click="Save_Click"
             Content="Save" />
     </Grid>
 </UserControl>
