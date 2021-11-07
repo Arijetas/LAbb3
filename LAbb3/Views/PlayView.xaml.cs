@@ -32,6 +32,8 @@ namespace LAbb3.Views
         {
             Visibility = Visibility.Collapsed;
         }
+
+
     }
 }
 

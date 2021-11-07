@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LAbb3"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:LAbb3.Views"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -46,7 +47,10 @@
                 FontSize="20"
                 Foreground="White"
                 Text="Statement" />
-            <TextBox Name="StatementTextBox" FontSize="20" TextWrapping="Wrap" />
+            <TextBox
+                Name="StatementTextBox"
+                FontSize="20"
+                TextWrapping="Wrap" />
         </StackPanel>
 
 
@@ -81,9 +85,19 @@
                 Foreground="White"
                 Text="Answer 3" />
             <TextBox Name="Answer3TextBox" FontSize="20" />
-            <TextBlock Foreground="White" Text="Mark the right answer" />
+            <TextBlock Foreground="White" Text="Mark the correct answer" />
             <CheckBox Name="CheckBox3" />
         </StackPanel>
+
+        <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Width="100"
+            Height="50"
+            VerticalAlignment="Bottom"
+            Click="AddQuestion_Click"
+            Content="Add Question" />
+
 
         <Button
             Grid.Row="4"
@@ -101,7 +115,8 @@
             Height="50"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            Click="Save_Click"
-            Content="Save" />
+            Click="CreateQuiz_Click"
+            Content="Create Quiz" />
+
     </Grid>
 </UserControl>

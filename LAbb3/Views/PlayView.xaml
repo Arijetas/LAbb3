@@ -21,15 +21,12 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button
-            Grid.Row="2"
+
+        <TextBlock Foreground="White" Text="Lista med all quizzez ???" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <ComboBox
+            Grid.Row="0"
             Grid.Column="0"
-            Width="100"
-            Height="50"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Click="Back_Click"
-            Content="Back" />
+            Height="50" />
         <StackPanel
             Grid.Row="1"
             Grid.Column="1"
@@ -65,5 +62,16 @@
             Foreground="White"
             Text="Score: 0/3?"
             TextAlignment="Center" />
+
+
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Width="100"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Click="Back_Click"
+            Content="Back" />
     </Grid>
 </UserControl>

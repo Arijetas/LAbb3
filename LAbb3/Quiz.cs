@@ -12,30 +12,58 @@ using Microsoft.Win32;
 
 namespace LAbb3
 {
-    class Quiz
+    public class Quiz
     {
-        public ICollection Questions
+        private ICollection<Question> _questions;
+
+        public ICollection <Question> Questions
+        {
+            get { return _questions; }
+            set { _questions = value; }
+        }
+
+
+       /* public ICollection Questions
         {
             get
             {
-                var Lista = new List<Question>();
-                return Lista;
+                var questions = new List<Question>();
+                return questions;
             }
-        }
+        }*/
 
-        public string Title { get; }
+        public static List<Quiz> allQuizzes = new List<Quiz>(); //Lista för alla quiz
 
-        /*public Question GetRandomQuestion()
+
+
+
+        private string _title;
+
+        public string Title
         {
-
+            get => _title;
+            set => _title = value;
         }
-       */
+
+       
+        public Quiz(string title, List <Question> questions)
+        {
+            _title = title;
+            _questions = questions;
+        }
+
+    
+        /*public Question GetRandomQuestion()
+       {
+
+       }
+      */
 
         public void AddQuestion(string statement, int correctAnswer, params string[] answers)
         {
-            List<Question> Lista = new List<Question>();
 
-          Lista.Add(new Question(statement,correctAnswer,answers));
+            var question = new Question(statement,correctAnswer,answers);
+            Questions.Add(question);
 
         }
 

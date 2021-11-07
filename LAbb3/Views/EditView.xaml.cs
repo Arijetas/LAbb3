@@ -23,11 +23,25 @@ namespace LAbb3.Views
         public EditView()
         {
             InitializeComponent();
+
         }
+
+        //ItemsSource="{Binding CreateView.xaml._selectedQuiz.questions}"/> i xaml för att få listor i combobox?
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
         }
+
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void AddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
+
 }

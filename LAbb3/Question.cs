@@ -3,33 +3,61 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace LAbb3
 {
-    class Question
+    public class Question
     {
-        public string Statement { get; set; }
-        public string[] Answers { get; set; }
 
-        private readonly int CorrectAnswer;
+        private string _statement;
 
-
-        public Question(string statement, int correctAnswer, params string[] answers)
+        public string Statement
         {
-            Statement = statement;
-            Answers = answers;
-            CorrectAnswer = correctAnswer;
-
+            get { return _statement; }
+            set { _statement = value; }
         }
 
 
-        /*
-         public int GetCorrectAnswer()
-         {
-             return correctAnswer;
-         }
-        */
+        private string[] _answers;
+
+        public string[] Answers
+        {
+            get { return _answers; }
+            set { _answers = value; }
+        }
+
+
+        private readonly int _correctAnswer;
+
+        public int CorrectAnswer
+        {
+            get { return _correctAnswer; }
+        }
+
+
+        // visar json Deserialize.. vilken ctor den ska använda 
+        //om den inte använder denna så använder den en tom ctor
+        [JsonConstructor]
+        public Question(string statement, int correctAnswer, params string[] answers)
+        {
+            _statement = statement;
+            _answers = answers;
+            _correctAnswer = correctAnswer;
+        }
+
+        public Question()
+        {
+
+        }
+
+       /*
+        public int GetCorrectAnswer()
+        {
+            return correctAnswer;
+        }
+       */
 
     }
 }

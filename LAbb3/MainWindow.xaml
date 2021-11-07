@@ -44,6 +44,6 @@
         </StackPanel>
         <views:EditView x:Name="EditViewFld" Visibility="Collapsed" />
         <views:PlayView x:Name="PlayViewFld" Visibility="Collapsed" />
-        <views:CreateView x:Name="CreateViewFld" Visibility="Collapsed" />
+        <views:CreateView x:Name="CreateViewFld" Visibility="Collapsed"/>
     </Grid>
 </Window>

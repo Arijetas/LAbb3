@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace LAbb3
 {
-    class FileFolder
+    class FileFolder    //DET BLIR INGEN JSON FIL I FOLDERN????????????? 
     {
-        public static List<Question> Lista = new List<Question>();
+        public static List<Question> questions = new List<Question>();
 
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        public static string path1 = "QuizListor";
+        public static string path1 = "QuizListor.json";
         public static string SpecificFolder => Path.Combine(path, "QuizListor");
 
-        static void CreateFolder()
+        public static void CreateFolder()
         {
             Directory.CreateDirectory(SpecificFolder);
         }
 
 
-        public static async Task Save (List<Question> Lista)
+        public static async Task Save (string quizName,List<Question> Lista)
         {
-
-            using (StreamWriter streamWriter = new StreamWriter(Path.Combine(path, path1)))
+            path1 = quizName;
+            using (StreamWriter streamWriter = new StreamWriter(Path.Combine(SpecificFolder, path1)))
             {
                 await streamWriter.WriteAsync(JsonSerializer.Serialize(Lista));
             }
@@ -38,8 +38,8 @@ namespace LAbb3
             {
                 var text = streamReader.ReadToEnd();
 
-                List<Question> listOfQuizzes = JsonSerializer.Deserialize<List<Question>>(text);
-                return listOfQuizzes;
+                List<Question> ListofQuestions = JsonSerializer.Deserialize<List<Question>>(text);
+                return ListofQuestions;
             }
         }
     }
