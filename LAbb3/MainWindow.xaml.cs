@@ -11,7 +11,6 @@ namespace LAbb3.Views
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }
