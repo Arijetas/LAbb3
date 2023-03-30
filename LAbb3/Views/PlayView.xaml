@@ -5,65 +5,87 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LAbb3"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:LAbb3.ViewModels"
     xmlns:views="clr-namespace:LAbb3.Views"
+    d:DataContext="{d:DesignInstance Type=viewmodels:PlayViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Background="#FF191616">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="Black" />
+                <GradientStop Offset="1" Color="HotPink" />
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             Width="100"
             Height="50"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            Click="Back_Click"
+            Command="{Binding GoBackCommand}"
             Content="Back" />
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="Select Quiz" />
+            <ComboBox
+                DisplayMemberPath="Title"
+                ItemsSource="{Binding AvailableQuizzes, UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding CurrentQuiz}" />
+            <Button
+                Width="100"
+                Height="50"
+                Command="{Binding StartQuizCommand}"
+                Content="START QUIZ" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox
+                Name="QuestionTextBox"
+                FontSize="20"
+                Text="{Binding CurrentQuestion.Statement, UpdateSourceTrigger=PropertyChanged}"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
         <StackPanel
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Orientation="Vertical">
-            <TextBlock
-                FontSize="20"
-                Foreground="White"
-                Text="Fråga"
-                TextWrapping="Wrap" />
-            <RadioButton
-                Name="Answer1"
-                Content="svar1"
-                Foreground="White" />
-            <RadioButton
-                Name="Answer2"
-                Content="svar2"
-                Foreground="White" />
-            <RadioButton
-                Name="Answer3"
-                Content="svar3"
-                Foreground="White" />
+            <Button
+                Width="300"
+                Height="50"
+                Command="{Binding ChooseAnswer1Command}"
+                Content="{Binding CurrentQuestion.Answers[0], UpdateSourceTrigger=PropertyChanged}" />
+            <Button
+                Width="300"
+                Height="50"
+                Command="{Binding ChooseAnswer2Command}"
+                Content="{Binding CurrentQuestion.Answers[1], UpdateSourceTrigger=PropertyChanged}" />
+            <Button
+                Width="300"
+                Height="50"
+                Command="{Binding ChooseAnswer3Command}"
+                Content="{Binding CurrentQuestion.Answers[2], UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="2"
-            Width="100"
-            Height="50"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            FontSize="15"
-            Foreground="White"
-            Text="Score: 0/3?"
-            TextAlignment="Center" />
     </Grid>
 </UserControl>

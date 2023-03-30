@@ -5,45 +5,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:lAbb3="clr-namespace:LAbb3"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:LAbb3.ViewModels"
     xmlns:views="clr-namespace:LAbb3.Views"
     Title="Quiz"
     Width="800"
-    Height="450"
+    Height="500"
     mc:Ignorable="d">
-    <Grid x:Name="GridOne">
-        <Image Source="/quiztime.png" Stretch="Fill"/>
-        <StackPanel
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Orientation="Vertical">
-            <Button
-                x:Name="EditView"
-                Width="80"
-                Height="50"
-                Background="#FF0A0A0A"
-                Click="EditView_Click"
-                Content="Edit"
-                Foreground="#FFFBF7F7" />
-            <Button
-                x:Name="PlayView"
-                Width="80"
-                Height="50"
-                Background="#FF0A0A0A"
-                Click="PlayView_Click"
-                Content="Play"
-                Foreground="#FFFBF7F7" />
-
-            <Button
-                x:Name="CreateView"
-                Width="80"
-                Height="50"
-                Background="#FF0A0A0A"
-                Click="CreateView_Click"
-                Content="Create"
-                Foreground="#FFFBF7F7" />
-        </StackPanel>
-        <views:EditView x:Name="EditViewFld" Visibility="Collapsed" />
-        <views:PlayView x:Name="PlayViewFld" Visibility="Collapsed" />
-        <views:CreateView x:Name="CreateViewFld" Visibility="Collapsed" />
+    <Grid>
+        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:StartViewModel}">
+                    <views:StartView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:CreateViewModel}">
+                    <views:CreateView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:PlayViewModel}">
+                    <views:PlayView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:EditViewModel}">
+                    <views:EditView />
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </Window>
